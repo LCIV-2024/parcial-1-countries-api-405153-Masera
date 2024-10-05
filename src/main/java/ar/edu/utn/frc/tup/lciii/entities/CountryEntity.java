@@ -21,5 +21,6 @@ public class CountryEntity {
     private String name;
     private long population;
     private double area;
+    private String code;
 
 }
