@@ -120,11 +120,9 @@ class CountryControllerTest {
         CountriesToSaveDto countriesToSaveDto = new CountriesToSaveDto(cantidad);
 
         when(countryService.saveRandomCountries(cantidad)).thenReturn(countryDtos);
-
-        // Act & Assert
         mockMvc.perform(post("/api/countries")
                         .contentType("application/json")
-                        .content("{\"amountOfCountryToSave\": " + cantidad + "}"))
+                        .content("{\"amountOfCountryToSave\":" + cantidad + "}"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].name").value("Argentina"))
